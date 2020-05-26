@@ -17,6 +17,7 @@ import os
 # default mongodb configuration
 default_config = {
     'MONGODB_SETTINGS': {
+        # 'host': 'mongodb://fabri:7WibFkS6LTwu@ds133077.mlab.com:33077/fabrisongs?authSource=fabrisongs&readPreference=primary&retryWrites=false',
         'db': 'pymongo',
         'host': 'localhost',
         'port': 27017,
@@ -60,3 +61,9 @@ def get_flask_app(config: dict = None) -> app.Flask:
     jwt = JWTManager(app=flask_app)
 
     return flask_app
+
+
+if __name__ == '__main__':
+    # Main entry point when run in stand-alone mode.
+    app = get_flask_app()
+    app.run(debug=True)
