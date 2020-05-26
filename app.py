@@ -60,9 +60,3 @@ def get_flask_app(config: dict = None) -> app.Flask:
     jwt = JWTManager(app=flask_app)
 
     return flask_app
-
-
-if __name__ == '__main__':
-    # Main entry point when run in stand-alone mode.
-    app = get_flask_app()
-    app.run(debug=True)
