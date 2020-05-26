@@ -19,7 +19,7 @@ class InitApi(Resource):
         :return: JSON object
         """
         print('e', request)
-        print('eccolo', request.get_json())
+        print('eccolo', request.json)
         return 'ok'
 
     def get(self) -> Response:
