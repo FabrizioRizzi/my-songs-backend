@@ -7,17 +7,18 @@ from api.authentication import SignUpApi, LoginApi
 from api.songs import SongsApi, SongApi
 from api.playlists import PlaylistsApi, PlaylistApi
 
-from flask import Response, jsonify
+from flask import Response, request, jsonify
 from flask_restful import Resource
 
 
 class InitApi(Resource):
-    def get(self) -> Response:
+    def post(self) -> Response:
         """
         GET response method for all documents in song collection.
         JSON Web Token is required.
         :return: JSON object
         """
+        print('eccolo', request.get_json())
         return 'ok'
 
 
