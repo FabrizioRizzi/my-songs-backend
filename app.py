@@ -7,6 +7,7 @@ from flask import Flask, app
 from flask_restful import Api
 from flask_mongoengine import MongoEngine
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 
 # local packages
 from api.routes import create_routes
@@ -38,6 +39,7 @@ def get_flask_app(config: dict = None) -> app.Flask:
     """
     # init flask
     flask_app = Flask(__name__)
+    CORS(flask_app)
 
     # configure app
     config = default_config if config is None else config
