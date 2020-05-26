@@ -3,11 +3,11 @@ from flask import jsonify
 from flask_restful import Resource
 
 # mongo-engine models
-from models.songs import Songs
+from models.playlists import Playlists
 
 
-class SongsApi(Resource):
+class PlaylistsApi(Resource):
     @staticmethod
     def get():
-        output = Songs.objects()
+        output = Playlists.objects()
         return jsonify({'result': output})
