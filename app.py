@@ -44,11 +44,9 @@ def get_flask_app(config: dict = None) -> app.Flask:
 
     # load config variables
     if 'MONGODB_URI' in os.environ:
-        print(os.environ['MONGODB_URI'])
         flask_app.config['MONGODB_SETTINGS'] = {'host': os.environ['MONGODB_URI'],
                                                 'retryWrites': False}
     if 'JWT_SECRET_KEY' in os.environ:
-        print(os.environ['JWT_SECRET_KEY'])
         flask_app.config['JWT_SECRET_KEY'] = os.environ['JWT_SECRET_KEY']
 
     # init api and routes
