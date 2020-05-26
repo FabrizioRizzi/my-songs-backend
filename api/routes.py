@@ -20,6 +20,10 @@ class InitApi(Resource):
         """
         print('e', request)
         print('eccolo', request.data)
+        print('eccolo2', request.args)
+        print('eccolo3', request.form)
+        print('eccolo4', request.json)
+        print('eccolo5', request.args)
         return 'ok'
 
     def get(self) -> Response:
