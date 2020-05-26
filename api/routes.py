@@ -7,33 +7,6 @@ from api.authentication import SignUpApi, LoginApi
 from api.songs import SongsApi, SongApi
 from api.playlists import PlaylistsApi, PlaylistApi
 
-from flask import Response, request, jsonify
-from flask_restful import Resource
-
-
-class InitApi(Resource):
-    def post(self) -> Response:
-        """
-        GET response method for all documents in song collection.
-        JSON Web Token is required.
-        :return: JSON object
-        """
-        print('e', request)
-        print('eccolo', request.data)
-        print('eccolo2', request.args)
-        print('eccolo3', request.form.get('data'))
-        print('eccolo4', request.get_json())
-        return 'ok'
-
-    def get(self) -> Response:
-        """
-        GET response method for all documents in song collection.
-        JSON Web Token is required.
-        :return: JSON object
-        """
-        print('eccolo get')
-        return 'ok'
-
 
 def create_routes(api: Api):
     """Adds resources to the api.
@@ -44,7 +17,6 @@ def create_routes(api: Api):
         api.add_resource(FooSpecial, '/special/foo', endpoint="foo")
     """
 
-    api.add_resource(InitApi, '/')
     api.add_resource(SignUpApi, '/authentication/signup/')
     api.add_resource(LoginApi, '/authentication/login/')
 
