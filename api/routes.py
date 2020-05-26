@@ -18,7 +18,17 @@ class InitApi(Resource):
         JSON Web Token is required.
         :return: JSON object
         """
+        print('e', request)
         print('eccolo', request.get_json())
+        return 'ok'
+
+    def get(self) -> Response:
+        """
+        GET response method for all documents in song collection.
+        JSON Web Token is required.
+        :return: JSON object
+        """
+        print('eccolo get')
         return 'ok'
 
 
