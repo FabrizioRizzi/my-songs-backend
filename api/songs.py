@@ -5,12 +5,12 @@ from flask_restful import Resource
 from flask_jwt_extended import jwt_required
 
 # project resources
-from models.playlists import Playlists
+from models.songs import Songs
 
 
-class PlaylistsApi(Resource):
+class SongsApi(Resource):
     """
-    Flask-resftul resource for returning db.playlists collection.
+    Flask-resftul resource for returning db.songs collection.
 
     :Example:
 
@@ -18,27 +18,27 @@ class PlaylistsApi(Resource):
     >>> from flask_restful import Api
     >>> from app import default_config
 
-    # Create flask app, config, and resftul api, then add PlaylistsApi route
+    # Create flask app, config, and resftul api, then add SongsApi route
     >>> app = Flask(__name__)
     >>> app.config.update(default_config)
     >>> api = Api(app=app)
-    >>> api.add_resource(PlaylistsApi, '/playlists/')
+    >>> api.add_resource(SongsApi, '/songs/')
 
     """
     @jwt_required
     def get(self) -> Response:
         """
-        GET response method for all documents in playlist collection.
+        GET response method for all documents in song collection.
         JSON Web Token is required.
         :return: JSON object
         """
-        output = Playlists.objects()
+        output = Songs.objects()
         return jsonify({'result': output})
 
     @jwt_required
     def post(self) -> Response:
         """
-        POST response method for creating playlist.
+        POST response method for creating song.
         JSON Web Token is required.
         Authorization is not required
         To check it Users.objects.get(id=get_jwt_identity()).email for get email
@@ -46,55 +46,55 @@ class PlaylistsApi(Resource):
         :return: JSON object
         """
         data = request.get_json()
-        post_playlist = Playlists(**data).save()
-        output = {'id': str(post_playlist.id)}
+        post_song = Songs(**data).save()
+        output = {'id': str(post_song.id)}
         return jsonify({'result': output})
 
 
-class PlaylistApi(Resource):
+class SongApi(Resource):
     """
-    Flask-resftul resource for returning db.playlists collection.
+    Flask-resftul resource for returning db.songs collection.
     :Example:
     >>> from flask import Flask
     >>> from flask_restful import Api
     >>> from app import default_config
-    # Create flask app, config, and resftul api, then add PlaylistApi route
+    # Create flask app, config, and resftul api, then add SongApi route
     >>> app = Flask(__name__)
     >>> app.config.update(default_config)
     >>> api = Api(app=app)
-    >>> api.add_resource(PlaylistApi, '/playlists/<playlist_id>')
+    >>> api.add_resource(SongApi, '/songs/<song_id>')
     """
 
     @jwt_required
-    def get(self, playlist_id: str) -> Response:
+    def get(self, song_id: str) -> Response:
         """
-        GET response method for single documents in playlists collection.
+        GET response method for single documents in songs collection.
         :return: JSON object
         """
 
-        output = Playlists.objects.get(id=playlist_id)
+        output = Songs.objects.get(id=song_id)
         return jsonify({'result': output})
 
     @jwt_required
-    def put(self, playlist_id: str) -> Response:
+    def put(self, song_id: str) -> Response:
         """
-        PUT response method for updating a playlist.
+        PUT response method for updating a song.
         JSON Web Token is required.
         Authorization is required: Access(admin=true)
         :return: JSON object
         """
 
         data = request.get_json()
-        put_playlist = Playlists.objects(id=playlist_id).update(**data)
-        return jsonify({'result': put_playlist})
+        put_song = Songs.objects(id=song_id).update(**data)
+        return jsonify({'result': put_song})
 
     @jwt_required
-    def delete(self, playlist_id: str) -> Response:
+    def delete(self, song_id: str) -> Response:
         """
-        DELETE response method for deleting single playlist.
+        DELETE response method for deleting single song.
         JSON Web Token is required.
         :return: JSON object
         """
 
-        output = Playlists.objects(id=playlist_id).delete()
+        output = Songs.objects(id=song_id).delete()
         return jsonify({'result': output})
