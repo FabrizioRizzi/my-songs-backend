@@ -32,7 +32,6 @@ class SongsApi(Resource):
         JSON Web Token is required.
         :return: JSON object
         """
-        print('ok')
         output = Songs.objects()
         return jsonify({'result': output})
 
