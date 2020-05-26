@@ -1,3 +1,7 @@
+"""
+Entry point of app
+"""
+
 # flask packages
 from flask import Flask, app
 from flask_restful import Api
@@ -6,6 +10,9 @@ from flask_jwt_extended import JWTManager
 
 # local packages
 from api.routes import create_routes
+
+# external packages
+import os
 
 # default mongodb configuration
 default_config = {
@@ -34,6 +41,13 @@ def get_flask_app(config: dict = None) -> app.Flask:
     # configure app
     config = default_config if config is None else config
     flask_app.config.update(config)
+
+    # load config variables
+    if 'MONGODB_URI' in os.environ:
+        flask_app.config['MONGODB_SETTINGS'] = {'host': os.environ['MONGODB_URI'],
+                                                'retryWrites': False}
+    if 'JWT_SECRET_KEY' in os.environ:
+        flask_app.config['JWT_SECRET_KEY'] = os.environ['JWT_SECRET_KEY']
 
     # init api and routes
     api = Api(app=flask_app)
