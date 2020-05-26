@@ -31,6 +31,7 @@ class SignUpApi(Resource):
         POST response method for creating user.
         :return: JSON object
         """
+        print(request.get_json())
         data = request.get_json()
         post_user = Users(**data)
         post_user.save()
@@ -57,6 +58,7 @@ class LoginApi(Resource):
         POST response method for retrieving user web token.
         :return: JSON object
         """
+        print(request.data)
         print(request.get_json())
         data = request.get_json()
         user = Users.objects.get(email=data.get('email'))
