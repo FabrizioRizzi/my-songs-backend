@@ -5,7 +5,7 @@ from flask_restful import Api
 # project resources
 from api.authentication import SignUpApi, LoginApi
 from api.songs import SongsApi, SongApi
-from api.playlist import PlaylistsApi, PlaylistApi
+from api.playlists import PlaylistsApi, PlaylistApi
 
 
 def create_routes(api: Api):
