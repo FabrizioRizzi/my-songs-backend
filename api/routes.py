@@ -21,7 +21,7 @@ class InitApi(Resource):
         print('e', request)
         print('eccolo', request.data)
         print('eccolo2', request.args)
-        print('eccolo3', request.form)
+        print('eccolo3', request.form.get('data'))
         print('eccolo4', request.get_json())
         return 'ok'
 
