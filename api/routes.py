@@ -3,7 +3,7 @@
 from flask_restful import Api
 
 # project resources
-from api.authentication import SignUpApi, LoginApi
+from api.authentication import LoginApi
 from api.songs import SongsApi, SongApi
 from api.playlists import PlaylistsApi, PlaylistApi
 
@@ -17,7 +17,7 @@ def create_routes(api: Api):
         api.add_resource(FooSpecial, '/special/foo', endpoint="foo")
     """
 
-    api.add_resource(SignUpApi, '/authentication/signup/')
+#    api.add_resource(SignUpApi, '/authentication/signup/')
     api.add_resource(LoginApi, '/authentication/login/')
 
     api.add_resource(SongsApi, '/songs/')

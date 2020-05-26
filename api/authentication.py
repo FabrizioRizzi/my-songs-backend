@@ -12,30 +12,30 @@ from api.errors import unauthorized
 import datetime
 
 
-class SignUpApi(Resource):
-    """
-    Flask-resftul resource for creating new user.
-    :Example:
-    >>> from flask import Flask
-    >>> from flask_restful import Api
-    >>> from app import default_config
-    # Create flask app, config, and resftul api, then add SignUpApi route
-    >>> app = Flask(__name__)
-    >>> app.config.update(default_config)
-    >>> api = Api(app=app)
-    >>> api.add_resource(SignUpApi, '/authentication/signup')
-    """
-    @staticmethod
-    def post() -> Response:
-        """
-        POST response method for creating user.
-        :return: JSON object
-        """
-        data = request.get_json()
-        post_user = Users(**data)
-        post_user.save()
-        output = {'id': str(post_user.id)}
-        return jsonify({'result': output})
+# class SignUpApi(Resource):
+#     """
+#     Flask-resftul resource for creating new user.
+#     :Example:
+#     >>> from flask import Flask
+#     >>> from flask_restful import Api
+#     >>> from app import default_config
+#     # Create flask app, config, and resftul api, then add SignUpApi route
+#     >>> app = Flask(__name__)
+#     >>> app.config.update(default_config)
+#     >>> api = Api(app=app)
+#     >>> api.add_resource(SignUpApi, '/authentication/signup')
+#     """
+#     @staticmethod
+#     def post() -> Response:
+#         """
+#         POST response method for creating user.
+#         :return: JSON object
+#         """
+#         data = request.get_json()
+#         post_user = Users(**data)
+#         post_user.save()
+#         output = {'id': str(post_user.id)}
+#         return jsonify({'result': output})
 
 
 class LoginApi(Resource):
