@@ -15,11 +15,11 @@ class Playlists(Document):
     >>> from app import default_config
     >>> mongoengine.connect(**default_config['MONGODB_SETTINGS'])
     MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True, read_preference=Primary())
-    >>> new_playlist = Playlists(artist="Marillion", title="Jester's tears", genre="Prog")
+    >>> new_playlist = Playlists(artist="Marillion", album="Jester's tears", genre="Prog")
     >>> new_playlist.save()
     <Playlists: Playlists object>
     """
 
     artist = StringField(required=True, max_length=50)
-    title = StringField(required=True, max_length=100)
+    album = StringField(required=True, max_length=100)
     genre = StringField(max_length=50)
