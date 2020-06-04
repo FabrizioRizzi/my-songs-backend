@@ -1,3 +1,3 @@
 * Playlist genre limited list
-* Capire come tornare errori tramite gunicorn
-* Invalidare token
+* Flask error handling
+* Approfondire refresh token
