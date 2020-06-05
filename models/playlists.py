@@ -24,4 +24,4 @@ class Playlists(Document):
     artist = StringField(required=True, max_length=50)
     album = StringField(required=True, max_length=100)
     genre = StringField(max_length=50)
-    rating = IntField(min_value=1, max_value=5)
+    rating = IntField(min_value=0, max_value=5)

@@ -46,7 +46,10 @@ class PlaylistsApi(Resource):
         :return: JSON object
         """
         data = request.get_json()
-        post_playlist = Playlists(**data).save()
+        try:
+            post_playlist = Playlists(**data).save()
+        except Exception as e:
+            return jsonify("%s" % e)
         output = {'id': str(post_playlist.id)}
         return jsonify({'result': output})
 
