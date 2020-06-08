@@ -6,6 +6,7 @@ from flask_restful import Api
 from api.authentication import LoginApi
 from api.songs import SongsApi, SongApi
 from api.playlists import PlaylistsApi, PlaylistApi
+from api.standards import StandardsApi, StandardApi
 
 
 def create_routes(api: Api):
@@ -25,3 +26,6 @@ def create_routes(api: Api):
 
     api.add_resource(PlaylistsApi, '/playlists/')
     api.add_resource(PlaylistApi, '/playlists/<playlist_id>')
+
+    api.add_resource(StandardsApi, '/standards/')
+    api.add_resource(StandardApi, '/standards/<standard_id>')
