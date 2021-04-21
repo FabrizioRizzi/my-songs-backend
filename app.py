@@ -18,7 +18,6 @@ import os
 # default mongodb configuration
 default_config = {
     'MONGODB_SETTINGS': {
-        # 'host': 'mongodb://fabri:7WibFkS6LTwu@ds133077.mlab.com:33077/fabrisongs?authSource=fabrisongs&readPreference=primary&retryWrites=false',
         'db': 'pymongo',
         'host': 'localhost',
         'port': 27017,

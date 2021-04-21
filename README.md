@@ -1,10 +1,7 @@
 # My Songs Backend
 
-Backend realizzato con python, flask, mongo engine per esporre API che resituiscano dati provenienti da un db mongo
+* Backend of My Songs App (Python, Flask, Mongo engine to create REST API)
 
-App deployata su Heroku e db su mLab
+* App deployed on Heroku (remember env variables) and db on MongoDb Atlas.
 
-Seguire la guida guide.docx
-
-Avviare prod tramite gunicorn 'app:get_flask_app()'
-
+* Start the app with gunicorn 'app:get_flask_app()'
